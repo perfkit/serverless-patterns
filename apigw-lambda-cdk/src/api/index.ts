@@ -5,6 +5,8 @@ import { Tags } from "@aws-cdk/core";
 import path from "path";
 import config from "./config.json";
 
+const envMemorySize = parseInt(process.env.MEMORY_SIZE || '')
+const memorySize = Number.isInteger(envMemorySize) ? envMemorySize : 1024
 
 export class ApiStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string) {
@@ -14,11 +16,16 @@ export class ApiStack extends cdk.Stack {
       code: new lambda.AssetCode(path.resolve(__dirname, "dist")),
       handler: `index.${config.api.handler}`,
       runtime: lambda.Runtime.NODEJS_14_X,
+      memorySize: memorySize,
+      tracing: lambda.Tracing.ACTIVE,
     });
     
     new apigw.LambdaRestApi(this, config.apiName, {
       handler,
-      description: config.apiDescription
+      description: config.apiDescription,
+      deployOptions: {
+        tracingEnabled: true
+      }
     });
 
 

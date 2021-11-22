@@ -136,3 +136,9 @@ package-lock.json
 # CDK
 cdk.out
 dist/*
+
+# sb
+__pycache__/
+.sb/
+logs
+workload_options.json
