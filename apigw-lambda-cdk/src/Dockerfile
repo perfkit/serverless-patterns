@@ -3,10 +3,10 @@
 FROM node:16
 
 # https://www.npmjs.com/package/aws-cdk
-# or latest
+# specific version or latest
 # NOTE: potential build failure when this version gets out of sync with the package.json
 # Workaround: Need to update here or pin versions using package-lock.json
-ARG AWS_CDK_VERSION=1.133.0
+ARG AWS_CDK_VERSION=latest
 ENV AWS_CDK_VERSION $AWS_CDK_VERSION
 
 # Install AWS CDK globally

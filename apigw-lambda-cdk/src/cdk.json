@@ -1,3 +1,6 @@
 {
-    "app": "ts-node ."
+    "app": "ts-node .",
+    "context": {
+        "@aws-cdk/core:newStyleStackSynthesis": true
+    }
 }
