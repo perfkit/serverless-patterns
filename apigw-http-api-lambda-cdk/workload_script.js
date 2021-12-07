@@ -36,7 +36,7 @@ function getXrayTraceHeader() {
 	dv.setInt32(0, current_time_secs)
 	const current_time_hex = hex(ab)
 
-	return `Root=1-${current_time_hex}-${trace_id};Sampled=1`
+	return `Root=1-${current_time_hex}-${trace_id}`
 }
 
 // Copied from https://stackoverflow.com/a/55200387
