@@ -13,7 +13,7 @@ apigw_node:
   description: Simple Nodejs Lambda function
   provider: aws
   region: us-east-1
-  memory_size: 256
+  memory_size: 1024
 """
 
 
